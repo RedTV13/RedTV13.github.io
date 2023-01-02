@@ -1,0 +1,18 @@
+body
+{
+    text-align: center;
+}
+
+#Body
+{
+    background-color: #ffffff;
+}   
+
+#Button
+{
+    float: left;
+    background-color: #ffffff;
+    border-color: white;
+    width: 120px;
+    height: 120px;
+}
