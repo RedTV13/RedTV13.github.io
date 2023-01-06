@@ -39,7 +39,12 @@
         </div>
 <!-------------------------------------------------------------------------------------------------------------------------------->
         <div id="timer">
+            <img src="assets/fullscreen.png" id="fullscreen" onclick="openFullscreen()">
+            <img src="assets/exitFullscreen.png" id="exitFullscreen" onclick="closeFullscreen()">
                 <h1 id="countdown">0:0:0</h1><br>
+                <label for="hours" id="hoursLabel">hrs:</label>
+                <label for="minutes" id="minutesLabel">mins:</label>
+                <label for="seconds" id="secondsLabel">secs:</label><br>
                 <select id="hours" name="hours">
                     <option value="0">0</option>
                     <option value="1">1</option>
