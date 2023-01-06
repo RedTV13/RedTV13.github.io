@@ -176,6 +176,8 @@ function reset()
 /* View in fullscreen */
 function openFullscreen() 
 {
+  document.getElementById("fullscreen").style.display = "none";
+  document.getElementById("exitFullscreen").style.display = "inline-block";
   if (elem.requestFullscreen) 
   {
     elem.requestFullscreen();
@@ -193,6 +195,8 @@ function openFullscreen()
 /* Close fullscreen */
 function closeFullscreen() 
 {
+  document.getElementById("fullscreen").style.display = "inline-block";
+  document.getElementById("exitFullscreen").style.display = "none";
   if (document.exitFullscreen) 
   {
     document.exitFullscreen();
