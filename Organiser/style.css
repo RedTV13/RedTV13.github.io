@@ -281,3 +281,43 @@ input:focus
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
 }
+
+#fullscreen
+{
+  height: 25px;
+  width: 25px;
+  margin-right: -950px;
+  margin-top: -60px;
+  cursor: pointer;
+}
+
+#exitFullscreen
+{
+  height: 25px;
+  width: 25px;
+  margin-right: -980px;
+  margin-top: -60px;
+  cursor: pointer;
+}
+
+#exitFullscreen:hover, #fullscreen:hover
+{
+  height: 28px;
+  width: 28px;
+}
+
+#hoursLabel, #minutesLabel, #secondsLabel
+{
+  font-family: 'DM Serif Display', serif;
+  color: white;
+}
+
+#minutesLabel
+{
+  margin-left: 10px;
+}
+
+#secondslabel
+{
+  margin-left: 8px;
+}
