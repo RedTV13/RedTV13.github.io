@@ -286,7 +286,7 @@ input:focus
 {
   height: 25px;
   width: 25px;
-  float: left;
+  float: right;
   margin-top: -60px;
   cursor: pointer;
 }
@@ -295,7 +295,7 @@ input:focus
 {
   height: 25px;
   width: 25px;
-  float: left;
+  float: right;
   margin-top: -60px;
   cursor: pointer;
 }
