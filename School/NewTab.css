@@ -1,0 +1,306 @@
+body
+{
+    text-align: center;
+    color: whitesmoke;
+    background-color: #ddefdd;
+    font-family: 'IM Fell English', serif;
+    font-weight: 300;
+    stroke: black;
+    overflow: hidden;
+}
+
+#submit
+{
+    border-radius: 25px;
+    border: 0px;
+    background-color: #87a087;
+    height: 50px;
+    width: 100px;
+    color: whitesmoke;
+    font-family: 'IM Fell English', serif;
+    font-size: 25px;
+}
+
+#Search
+{
+    height: 99%;
+    width: 100%;
+    background-image: url(images/Sage.png);
+    background-size: 100%;
+}
+
+#Bar
+{
+    margin-top: 237px;
+    height: 50px;
+    width: 65%;
+    background-color: #90a190af;
+    border: 0px;
+    border-radius: 25px;
+    font-family: 'IM Fell English', serif;
+    font-size: large;
+    color: whitesmoke;
+}
+
+#Bar:focus
+{
+    outline: none;
+}
+
+::placeholder
+{
+    color: whitesmoke;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+#container
+{
+    height: 200px;
+    width: 80%;
+    margin-left: 150px;
+    margin-top: 200px;
+}
+
+.Agora
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Agora:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 120px;
+    width: 100px;
+}
+
+.AgoraIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+#Agora
+{
+    color: #5d855d;
+}
+
+.Canvas
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Canvas:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 120px;
+    width: 100px;
+}
+
+.CanvasIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+#Canvas
+{
+    color: #5d855d;
+}
+
+.Mathspace
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Mathspace:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 120px;
+    width: 100px;
+}
+
+.MathspaceIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+#Mathspace
+{
+    color: #5d855d;
+}
+
+.Drive
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Drive:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 120px;
+    width: 100px;
+}
+
+.DriveIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+#Drive
+{
+    color: #5d855d;
+}
+
+.Calendar
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Calendar:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 120px;
+    width: 100px;
+}
+
+.CalendarIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+#Calendar
+{
+    color: #5d855d;
+}
+
+.Stile
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Stile:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 120px;
+    width: 100px;
+}
+
+.StileIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+#Stile
+{
+    color: #5d855d;
+}
+
+.Cambridge
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Cambridge:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 120px;
+    width: 100px;
+}
+
+.CambridgeIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+#Cambridge
+{
+    color: #5d855d;
+}
+
+.Unsplash
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Unsplash:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 120px;
+    width: 100px;
+}
+
+.UnsplashIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+#Unsplash
+{
+    color: #5d855d;
+}
+
+.Library
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Library:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 120px;
+    width: 100px;
+}
+
+.LibraryIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+#Library
+{
+    color: #5d855d;
+}
