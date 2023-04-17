@@ -1,0 +1,262 @@
+body
+{
+    text-align: center;
+    color: white;
+    background-color: rgb(197, 218, 195);
+    font-family: 'IM Fell English', serif;
+    font-weight: 300;
+    font-size: larger;
+    overflow: hidden;
+}
+
+#submit
+{
+    border-radius: 25px;
+    border: 0px;
+    background-color: rgb(166, 207, 162);
+    height: 50px;
+    width: 100px;
+    color: white;
+    font-family: 'IM Fell English', serif;
+    font-size: 25px;
+}
+
+#Search
+{
+    height: 99%;
+    width: 100%;
+    background-image: url(images/Green.jpg);
+    background-position: left top;
+    background-size: 100%;
+}
+
+#Bar
+{
+    margin-top: 237px;
+    height: 50px;
+    width: 65%;
+    background-color: rgba(176, 207, 178, 0.5);
+    border: 0px;
+    border-radius: 25px;
+    font-family: 'IM Fell English', serif;
+    font-size: large;
+    color: rgb(255, 255, 255);
+}
+
+:focus
+{
+    outline: none;
+}
+
+::placeholder
+{
+    color: rgb(210, 250, 210);
+    font-size: 25px;
+    font-weight: 500;
+}
+
+#container
+{
+    height: 200px;
+    width: 80%;
+    margin-left: 150px;
+    margin-top: 200px;
+}
+
+.YouTube
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.YouTube:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100px;
+    width: 100px;
+}
+
+.YouTubeIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+.Disney
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Disney:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100px;
+    width: 100px;
+}
+
+.DisneyIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+.Mail
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Mail:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100px;
+    width: 100px;
+}
+
+.MailIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+.YMail
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.YMail:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100px;
+    width: 100px;
+}
+
+.YMailIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+.Drive
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Drive:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100px;
+    width: 100px;
+}
+
+.DriveIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+.myGov
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.myGov:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100px;
+    width: 100px;
+}
+
+.myGovIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+.Pinterest
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Pinterest:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100px;
+    width: 100px;
+}
+
+.PinterestIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+.Unsplash
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.Unsplash:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100px;
+    width: 100px;
+}
+
+.UnsplashIMG
+{
+    height: 100px;
+    width: 100px;
+}
+
+.CodeCamps
+{
+    border-radius: 25px;
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+.CodeCamps:hover
+{
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100px;
+    width: 100px;
+}
+
+.CodeCampsIMG
+{
+    height: 100px;
+    width: 100px;
+}
