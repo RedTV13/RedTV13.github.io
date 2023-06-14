@@ -25,7 +25,7 @@ body
 {
     height: 99%;
     width: 100%;
-    background-image: url(images/Sage.jpg);
+    background-image: url(images/Sage.png);
     background-size: 100%;
 }
 
@@ -116,7 +116,7 @@ body
     color: #5d855d;
 }
 
-.Mathspace
+.GitLab
 {
     border-radius: 25px;
     height: 100px;
@@ -124,7 +124,7 @@ body
     display: inline-block;
 }
 
-.Mathspace:hover
+.GitLab:hover
 {
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.5);
@@ -132,13 +132,13 @@ body
     width: 100px;
 }
 
-.MathspaceIMG
+.GitLabIMG
 {
     height: 100px;
     width: 100px;
 }
 
-#Mathspace
+#GitLab
 {
     color: #5d855d;
 }
@@ -197,7 +197,7 @@ body
     color: #5d855d;
 }
 
-.BSSS
+.Stile
 {
     border-radius: 25px;
     height: 100px;
@@ -205,7 +205,7 @@ body
     display: inline-block;
 }
 
-.BSSS:hover
+.Stile:hover
 {
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.5);
@@ -213,13 +213,13 @@ body
     width: 100px;
 }
 
-.BSSSIMG
+.StileIMG
 {
     height: 100px;
     width: 100px;
 }
 
-#BSSS
+#Stile
 {
     color: #5d855d;
 }
