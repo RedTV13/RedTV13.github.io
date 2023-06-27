@@ -51,13 +51,13 @@ function MySketch()
         }
         if (second() == 59)
         {
-            fill(210, 225, 217);
+            fill(200, 219, 209);
             rect(0, 620, width, 30);
         }
         fill(255);
         secondCircle = 20 + second() * (width / 60);
         circle(secondCircle, 630, 10);
-        fill(210, 225, 217);
+        fill(200, 219, 209);
         rect((width / 2) - 30, 715, 60, 60);
         fill(255);
         textSize(50);
@@ -71,13 +71,13 @@ function MySketch()
         }
         if (minute() == 59 && second() < 1)
         {
-            fill(210, 225, 217);
+            fill(200, 219, 209);
             rect(0, 370, width, 20);
         }
         fill(255);
         minuteCircle = 20 + minute() * (width / 60);
         circle(minuteCircle, 388, 10);
-        fill(210, 225, 217);
+        fill(200, 219, 209);
         rect((width / 2) - 30, 490, 60, 60);
         fill(255);
         textSize(50);
@@ -91,13 +91,13 @@ function MySketch()
         }
         if (intHour == 12 && second() < 1)
         {
-            fill(210, 225, 217);
+            fill(200, 219, 209);
             rect(0, 130, width, 20);
         }
         fill(255);
         hourCircle = 20 + intHour * (width / 12);
         circle(hourCircle, 150, 10);
-        fill(210, 225, 217);
+        fill(200, 219, 209);
         rect((width / 2) - 30, 240, 60, 60);
         fill(255);
         textSize(50);
