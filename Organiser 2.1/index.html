@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>organiser 2</title>
+  <!-- <script src="p5/p5.min.js"></script>
+  <script src="p5/p5.sound.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Raleway&display=swap" rel="stylesheet">
+</head>
+
+<body onload="startUp()">
+  <main>
+    <div id="settings">
+      <span id="close" onclick="hide()">&times;</span>
+      <div id="controls">
+        <button id="clearLocalStorage" onclick="clearLocalStorage()">clear stored data</button><br>
+        <label for="toggleText" id="toggleTextLabel">show time</label>
+        <input type="checkbox" id="toggleText" name="toggleText" onclick="showText()"><br>
+        <!-- <button id="toggleText" onclick="showText()">show time</button><br> -->
+        <label for="studyMinutes" id="SminutesLabel">Work Length:</label>
+        <select id="studyMinutes" name="studyMinutes">
+          <option value=0>0</option>
+          <option value=5>5</option>
+          <option value=10>10</option>
+          <option value=15>15</option>
+          <option value=20>20</option>
+          <option value=25>25</option>
+          <option value=30>30</option>
+          <option value=35>35</option>
+          <option value=40>40</option>
+          <option value=45>45</option>
+          <option value=50>50</option>
+          <option value=55>55</option>
+        </select><br>
+        <label for="breakMinutes" id="BminutesLabel">Short Break Length:</label>
+        <select id="breakMinutes" name="breakMinutes">
+          <option value=0>0</option>
+          <option value=5>5</option>
+          <option value=10>10</option>
+          <option value=15>15</option>
+          <option value=20>20</option>
+          <option value=25>25</option>
+          <option value=30>30</option>
+          <option value=35>35</option>
+          <option value=40>40</option>
+          <option value=45>45</option>
+          <option value=50>50</option>
+          <option value=55>55</option>
+        </select><br>
+        <label for="lBreakMinutes" id="LBminutesLabel">Long Break Length:</label>
+        <select id="lBreakMinutes" name="lBreakMinutes">
+          <option value=0>0</option>
+          <option value=5>5</option>
+          <option value=10>10</option>
+          <option value=15>15</option>
+          <option value=20>20</option>
+          <option value=25>25</option>
+          <option value=30>30</option>
+          <option value=35>35</option>
+          <option value=40>40</option>
+          <option value=45>45</option>
+          <option value=50>50</option>
+          <option value=55>55</option>
+        </select><br>
+        <button id="saveSettings" onclick="saveSettings()">save pomodoro settings</button>
+      </div>
+    </div>
+    <div id="overlay">Time's Up!</div>
+    <div id="navBar">
+      <span id="clockNav" onclick="showClock()" class="active">Clock</span>
+      <span id="timerNav" onclick="showTimer()" class="inactive">Pomodoro</span>
+      <img src="Assets/cog.png" id="openSettings" onclick="settings()">
+    </div>
+    <div id="content">
+      <div id="leftDiv">
+        <h1 id="ToDoHeading">to-do</h1>
+        <input type="text" id="myInput" placeholder="task" data-ms-editor="false">
+        <button type="button" onclick="newElement()" id="addBtn">add</button>
+        <div id="list">
+          <ul id="myUL">
+          </ul>
+        </div>
+      </div>
+      <div id="rightDiv">
+        <img src="Assets/fullscreen.png" onclick="fullScreen()" id="fullScreenBtn">
+        <div id="clockSketch"></div>
+        <div id="pomodoro">
+          <h1 id="pomText">
+            how long would you like to work for?
+          </h1>
+          <div id="dropdowns">
+            <label for="hours" id="hoursLabel">hrs:</label>
+            <select id="hours" name="hours" onchange="changeH()">
+              <option value=0>0</option>
+              <option value=1>1</option>
+              <option value=2>2</option>
+              <option value=3>3</option>
+              <option value=4>4</option>
+              <option value=5>5</option>
+            </select>
+            <label for="minutes" id="minutesLabel">mins:</label>
+            <select id="minutes" name="minutes" onchange="changeM()">
+              <option value=0>0</option>
+              <option value=5>5</option>
+              <option value=10>10</option>
+              <option value=15>15</option>
+              <option value=20>20</option>
+              <option value=25>25</option>
+              <option value=30>30</option>
+              <option value=35>35</option>
+              <option value=40>40</option>
+              <option value=45>45</option>
+              <option value=50>50</option>
+              <option value=55>55</option>
+            </select>
+          </div>
+          <div id="break">
+            next break in...
+          </div>
+          <button id="start" onclick="start()">
+            start
+          </button>
+          <button id="stop" onclick="stop()">
+            stop
+          </button>
+          <button id="reset" onclick="reset()">
+            reset
+          </button>
+          <div id="time">
+            <span id="hrs">00</span>:
+            <span id="mins">00</span>:
+            <span id="secs">00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="snackbar"></div>
+  </main>
+</body>
+<script src="sketch.js"></script>
+<script src="script.js"></script>
+</html>
