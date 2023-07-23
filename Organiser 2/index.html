@@ -5,11 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>organiser 2</title>
-  <!--<script src="../p5.min.js"></script>
-  <script src="../addons/p5.sound.js"></script>
-  <script src="p5/p5.min.js"></script>-->
+  <!-- <script src="p5/p5.min.js"></script>
+  <script src="p5/p5.sound.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-  <script src="sketch.js"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +19,10 @@
     <div id="settings">
       <span id="close" onclick="hide()">&times;</span>
       <div id="controls">
+        <button id="clearLocalStorage" onclick="clearLocalStorage()">clear stored data</button><br>
+        <label for="toggleText" id="toggleTextLabel">show time</label>
+        <input type="checkbox" id="toggleText" name="toggleText" onclick="showText()"><br>
+        <!-- <button id="toggleText" onclick="showText()">show time</button><br> -->
         <label for="studyMinutes" id="SminutesLabel">Work Length:</label>
         <select id="studyMinutes" name="studyMinutes">
           <option value=0>0</option>
@@ -66,12 +68,14 @@
           <option value=50>50</option>
           <option value=55>55</option>
         </select><br>
-        <button id="saveSettings" onclick="saveSettings()">save</button>
+        <button id="saveSettings" onclick="saveSettings()">save pomodoro settings</button>
       </div>
     </div>
+    <div id="overlay">Time's Up!</div>
     <div id="navBar">
-      <span id="clockNav" onclick="showClock()">Clock</span>
-      <span id="timerNav" onclick="showTimer()">Pomodoro</span>
+      <span id="clockNav" onclick="showClock()" class="active">Clock</span>
+      <span id="timerNav" onclick="showTimer()" class="inactive">Pomodoro</span>
+      <img src="Assets/cog.png" id="openSettings" onclick="settings()">
     </div>
     <div id="content">
       <div id="leftDiv">
@@ -84,9 +88,9 @@
         </div>
       </div>
       <div id="rightDiv">
+        <img src="Assets/fullscreen.png" onclick="fullScreen()" id="fullScreenBtn">
         <div id="clockSketch"></div>
         <div id="pomodoro">
-          <img src="Assets/cog.png" id="openSettings" onclick="settings()">
           <h1 id="pomText">
             how long would you like to work for?
           </h1>
@@ -133,18 +137,12 @@
             <span id="mins">00</span>:
             <span id="secs">00</span>
           </div>
-
-          <!-- <button id="openSettings" onclick="settings()">settings</button> -->
-          
         </div>
-      </div>
-      <div id="modal">
-        <button id="toggleText" onclick="showText()">show time</button>
       </div>
     </div>
     <div id="snackbar"></div>
   </main>
 </body>
+<script src="sketch.js"></script>
 <script src="script.js"></script>
-
 </html>

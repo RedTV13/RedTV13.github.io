@@ -6,9 +6,14 @@
     var list = document.getElementById("myUL");
     var input = document.getElementById("myInput");
     var elem = document.documentElement;
-    var clock = document.getElementById("clockSketch")
-    var timer = document.getElementById("pomodoro")
+    var clock = document.getElementById("clockSketch");
+    var timer = document.getElementById("pomodoro");
+    
     var i;
+    var j;
+    var listCount; //Number of elements in to do list
+    var intList = []; //id's of to do list elements
+    var intID;
 
     //POMODORO VARIABLES
     var hours = 0; //user selected hours
@@ -48,7 +53,48 @@
 
 function startUp()
 {
+    listCount = localStorage.getItem("listCount");
+    for(j = 0; j < listCount; j++)
+    {
+        intList.push(localStorage.getItem("intList" + j));
+        console.log(intList);
+    }
 
+    for (j = 0; j < listCount; j++)
+    {
+        var li = document.createElement("li"); //create a list item
+        var inputValue = localStorage.getItem(j + 1); //get the saved user input
+        //var inputValue = localStorage.getItem(intList[j]);
+        var t = document.createTextNode(inputValue); //Create a text node containing the user input
+        li.appendChild(t); //add the text node to the new list item
+        document.getElementById("myUL").appendChild(li); //add the new list item to the list
+        li.id = j + 1;
+
+        //adding the remove button for each list item
+        var span = document.createElement("SPAN"); //create a span
+        var txt = document.createTextNode("\u00D7"); //create a text node containing an x
+        span.className = "close"; //name the span close
+        span.appendChild(txt); //put the text node in the span
+        li.appendChild(span); //add the span to the list item
+
+        //remove the list item when close is clicked
+        for (i = 0; i < close.length; i++) 
+        {
+            close[i].onclick = function () 
+            {
+                var div = this.parentElement;
+                div.style.display = "none";
+                listCount--;
+                intID = this.parentElement.id;
+                console.log("intID: " + intID);
+                console.log("intList pre: " + intList);
+                intList.splice(intID - 1, 1, "0");
+                console.log("intList post: " + intList);
+                console.log("localStorage: " + localStorage.getItem("intList" + intID));
+                localStorage.setItem("intList" + intID, "0");
+            }
+        }
+    }
 }
 
 //-------------------------------------------------------------NavBar---------------------------------------------------------------------//
@@ -57,12 +103,16 @@ function startUp()
     {
         clock.style.display = "inline-block";
         timer.style.display = "none";
+        clockNav.className = "active";
+        timerNav.className = "inactive";
     }
 
     function showTimer()
     {
         timer.style.display = "inline-block";
         clock.style.display = "none";
+        timerNav.className = "active";
+        clockNav.className = "inactive";
     }
 }
 //-------------------------------------------------------------TO-DO-LIST---------------------------------------------------------------------//
@@ -99,35 +149,51 @@ function startUp()
     // Create a new list item when clicking on the "Add" button
     function newElement() 
     {
-        var li = document.createElement("li");
-        var inputValue = document.getElementById("myInput").value;
-        var t = document.createTextNode(inputValue);
-        li.appendChild(t);
-        if (inputValue === '') 
+        var li = document.createElement("li"); //create a list item
+        var inputValue = document.getElementById("myInput").value; //get the user input
+        var t = document.createTextNode(inputValue); //Create a text node containing the user input
+        li.appendChild(t); //add the text node to the new list item
+        if (inputValue === '') //if the input is empty then show the snackbar
         {
             snackbar.innerHTML = "You must write something!";
             snackbar.className = "show";
             setTimeout(function () { snackbar.className = snackbar.className.replace("show", ""); }, 3000);
             //alert("You must write something!");
         }
-        else 
+        else //otherwise add the new list item to the list
         {
             document.getElementById("myUL").appendChild(li);
+            listCount++;
+            intList.push(listCount);
+            localStorage.setItem(listCount, inputValue);
+            localStorage.setItem("listCount", listCount);
+            li.id = listCount;
+            localStorage.setItem("intList" + listCount, listCount);
         }
-        document.getElementById("myInput").value = "";
+        document.getElementById("myInput").value = "";//clear the text input
 
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        li.appendChild(span);
+        //adding the remove button for each list item
+        var span = document.createElement("SPAN"); //create a span
+        var txt = document.createTextNode("\u00D7"); //create a text node containing an x
+        span.className = "close"; //name the span close
+        span.appendChild(txt); //put the text node in the span
+        li.appendChild(span); //add the span to the list item
 
+        //remove the list item when close is clicked
         for (i = 0; i < close.length; i++) 
         {
             close[i].onclick = function () 
             {
                 var div = this.parentElement;
                 div.style.display = "none";
+                listCount--;
+                intID = this.parentElement.id;
+                console.log("intID: " + intID);
+                console.log("intList pre: " + intList);
+                intList.splice(intID - 1, 1, "0");
+                console.log("intList post: " + intList);
+                console.log("localStorage: " + localStorage.getItem("intList" + intID));
+                localStorage.setItem("intList" + intID, "0");
             }
         }
     }
@@ -140,6 +206,28 @@ function startUp()
             newElement(e);
         }
     })
+
+    function clearLocalStorage()
+    {
+        localStorage.clear();
+    }
+
+    function closeLI()
+    {
+        for (i = 0; i < close.length; i++) 
+        {
+            close[i].onclick = function () 
+            {
+                var div = this.parentElement;
+                div.style.display = "none";
+                listCount--;
+                intList.splice(Number(div.id) - 1);
+                console.log("div id: " + div.id)
+                localStorage.removeItem("intList" + div.id);
+                console.log("intList: " + intList);
+            }
+        }
+    }
 }
 //-------------------------------------------------------------POMODORO---------------------------------------------------------------------//
 {
@@ -264,8 +352,7 @@ function startUp()
                 clearInterval(wTimer)
                 clearInterval(sbTimer)
                 clearInterval(lbTimer)
-                document.getElementById("pomText").innerHTML = "Time's Up!";
-                document.getElementById("pomText").style.display = "block";
+                document.getElementById("overlay").style.display = "block";
             }
             else
             {
@@ -369,6 +456,7 @@ function startUp()
 
         //show text
         document.getElementById("pomText").style.display = "block";
+        document.getElementById("pomText").innerHTML = "How long would you like to work for?";
 
         //reset displayed buttons
         document.getElementById("start").style.display = "none";
