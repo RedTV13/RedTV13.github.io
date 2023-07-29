@@ -46,9 +46,9 @@ function time()
     colour = red + "," + green + "," + blue;
     console.log(colour);
     now = new Date();
-    h = now.getHours() + 1;
-    m = now.getMinutes() + 1;
-    s = now.getSeconds() + 1;
+    h = now.getHours();
+    m = now.getMinutes();
+    s = now.getSeconds();
     if (h > 12)
     {
         h -= 12;
