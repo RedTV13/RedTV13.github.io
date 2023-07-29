@@ -44,11 +44,12 @@ function time()
     green = Math.round(mapRange(now.getMinutes(), 0, 59, 0, 255));
     blue = Math.round(mapRange(now.getMinutes(), 0, 59, 0, 255));
     colour = red + "," + green + "," + blue;
-    console.log(colour);
+    //console.log(colour);
     now = new Date();
     h = now.getHours();
     m = now.getMinutes();
     s = now.getSeconds();
+    checkContrast(red, green, blue);
     if (h > 12)
     {
         h -= 12;
@@ -107,6 +108,10 @@ function checkContrast(value1, value2, value3)
 
     if(contrast < 4.5)
     {
-        
+        document.body.style.color = "black";
+    }
+    else
+    {
+        document.body.style.color = "white";
     }
 }
