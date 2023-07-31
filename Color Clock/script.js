@@ -1,3 +1,4 @@
+
 var now;
 var count;
 var colour;
@@ -31,6 +32,7 @@ var value1;
 var value2;
 var value3;
 
+
 function startUp()
 {
     var draw = setInterval(time, 1000);
@@ -60,6 +62,29 @@ function time()
     //document.body.style.background = "rgb(230, 100, 50)";
     document.body.style.background = "rgb(" + colour + ")";
     document.getElementById("colortxt").innerHTML = red + ", " + green + ", " + blue;
+}
+
+screen.orientation.onchange = function orientationChange()
+{
+    if (window.innerWidth > 1290)
+    {
+        document.getElementById("timetxt").className = "portrait";
+        document.getElementById("colortxt").className = "portrait";
+    }
+    else
+    {
+        if (screen.orientation.type == "portrait-primary")
+        {
+            document.getElementById("timetxt").className = "portraitM";
+            document.getElementById("colortxt").className = "portraitM";
+        }
+        else
+        {
+            document.getElementById("timetxt").className = "landscapeM";
+            document.getElementById("colortxt").className = "landscapeM";
+        }
+    }
+    console.log(document.getElementById("timetxt").className);
 }
 
 function mapRange(value, low1, high1, low2, high2) 
