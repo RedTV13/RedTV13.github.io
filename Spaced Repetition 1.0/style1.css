@@ -1,0 +1,451 @@
+/* $white-smoke: rgba(242, 246, 244, 1);
+$mint-cream: rgba(222, 233, 227, 1);
+$ash-gray: rgba(202, 220, 210, 1);
+$ash-gray-2: rgba(183, 208, 194, 1);
+$cambridge-blue: rgba(164, 195, 178, 1);
+$cambridge-blue-2: rgba(133, 175, 152, 1);
+$zomp: rgba(101, 154, 125, 1);
+$viridian: rgba(86, 131, 107, 1);
+$hookers-green: rgba(71, 108, 88, 1);
+$brunswick-green: rgba(40, 62, 50, 1); */
+
+/*
+font-family: 'Karla', sans-serif;
+font-family: 'Merriweather', serif;
+*/
+
+:focus
+{
+    outline: none;
+}
+
+body
+{
+    overflow: hidden;
+    background-color: rgb(164, 195, 178);
+    font-family: 'Merriweather', serif;
+}
+
+div
+{
+    border-radius: 30px;
+    background-color: rgb(255, 255, 255, 0.4);
+    z-index: 1;
+}
+
+input[type="text" i]
+{
+    height: 30px;
+    width: 300px;
+    background-color: rgb(255, 255, 255, 0.4);
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-radius: 10px;
+    margin: 7px;
+    font-family: 'Merriweather', serif;
+}
+
+button
+{
+    background-color: rgb(255, 255, 255, 0.4);
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    padding: 0px 15px 0px 15px;
+    font-size: medium;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.hidden
+{
+    display: none;
+}
+
+#container
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr 1fr;
+    gap: 8px 8px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "navigation modes modes modes"
+        "navigation content content content"
+        "navigation content content content";
+
+    height: 98vh;
+    width: 99vw;
+    background-color: rgb(255, 255, 255, 0);
+}
+
+/*----------------------------------------------------------------NAVIGATION PANEL----------------------------------------------------------*/
+
+#navigation
+{
+    grid-area: navigation;
+    padding-top: 15px;
+}
+
+#navigation span
+{
+    cursor: pointer;
+}
+
+#navigation ul
+{
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+    list-style-type: none;
+    font-family: 'Raleway', sans-serif;
+    color: rgb(55, 85, 69);
+}
+
+#navigation ul li
+{
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    transition: 0.2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 35px;
+    padding-top: 15px;
+    border-radius: 10px;
+    margin-top: 3px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#navigation ul li:nth-child(odd)
+{
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#navigation ul li:hover
+{
+    background: rgb(255, 255, 255, 0.9);
+}
+
+#navigation ul li.active
+{
+    background-color: rgb(164, 195, 178, 0.7);
+}
+
+#btnSections,
+#btnBoxes
+{
+    font-family: 'Karla', sans-serif;
+    font-weight: bold;
+    margin-left: 15%;
+    padding: 2.8% 20px;
+    border-radius: 20px;
+    transition-property: color, background-color;
+    transition-duration: 0.3s, 0.2s;
+    transition-timing-function: linear, ease-in;
+}
+
+#newSection
+{
+    position: relative;
+    width: 90%;
+    display: inline-block;
+    top: -6px;
+    font-family: 'Karla', sans-serif;
+    font-weight: bold;
+    padding: 5% 6%;
+    transition-property: color, background-color;
+    transition-duration: 0.3s, 0.2s;
+    transition-timing-function: linear, ease-in;
+}
+
+#newSection.hidden
+{
+    display: none;
+}
+
+#btnSections:hover,
+#btnBoxes:hover,
+#newSection:hover
+{
+    background-color: rgb(164, 195, 178, 0.7);
+}
+
+#btnSections.active,
+#btnBoxes.active,
+#newSection.active
+{
+    background-color: rgb(164, 195, 178, 0.7);
+}
+
+#divSections,
+#divBoxes
+{
+    width: 100%;
+    height: 90%;
+    margin-top: 5%;
+    background-color: rgb(255, 255, 255, 0);
+}
+
+/*----------------------------------------------------------------NEW SECTION MODAL----------------------------------------------------------*/
+
+#newSecModal
+{
+    z-index: 100;
+    position: absolute;
+    height: 50vh;
+    width: 50vw;
+    top: 25vh;
+    left: 26vw;
+    text-align: center;
+    background-color: rgb(164, 195, 178, 0.8);
+}
+
+.close
+{
+    margin-left: 45%;
+    font-size: 30px;
+    transition-property: color, background-color;
+    transition-duration: 0.2s, 0.2s;
+    transition-timing-function: linear, ease-in;
+    cursor: pointer;
+    position: absolute;
+}
+
+.close:hover
+{
+    color: rgb(255, 0, 0);
+}
+
+#fullOverlay
+{
+    z-index: 99;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgb(164, 195, 178, 0.6);
+}
+
+/*----------------------------------------------------------SNACKBAR------------------------------------------------------------------*/
+
+#snackbar
+{
+    visibility: hidden;
+    min-width: 100px;
+    margin-left: -125px;
+    background-color: rgb(255, 255, 255, 0.9);
+    color: rgb(55, 85, 69);
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show
+{
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein
+{
+    from
+    {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to
+    {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein
+{
+    from
+    {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to
+    {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout
+{
+    from
+    {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to
+    {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout
+{
+    from
+    {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to
+    {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+/*----------------------------------------------------------TOP NAV BAR------------------------------------------------------------------*/
+
+#modes
+{
+    grid-area: modes;
+    display: inline-block;
+    align-items: center;
+    font-family: 'Karla', sans-serif;
+    font-weight: bold;
+}
+
+#modes span
+{
+    cursor: pointer;
+    padding: 3% 2%;
+    transition-property: color, background-color;
+    transition-duration: 0.3s, 0.2s;
+    transition-timing-function: linear, ease-in;
+    display: inline-block;
+    margin-left: -4px;
+}
+
+#modes span:hover
+{
+    background-color: rgb(164, 195, 178, 0.7);
+}
+
+#modes span.active
+{
+    background-color: rgb(164, 195, 178, 0.7);
+}
+
+#imgSettings
+{
+    position: absolute;
+    height: 50px;
+    margin-left: 52.5%;
+    margin-top: 1%;
+    cursor: pointer;
+}
+
+#imgHelp
+{
+    position: absolute;
+    height: 50px;
+    margin-left: 48%;
+    margin-top: 1%;
+    cursor: pointer;
+}
+
+#content
+{
+    grid-area: content;
+    padding-top: 20px;
+    text-align: center;
+}
+
+/*----------------------------------------------------------REVIEW MODE------------------------------------------------------------------*/
+
+#spnDiffBtns:hover
+{
+    cursor: pointer;
+}
+
+#spnDiffBtns span
+{
+    display: inline-block;
+    background-color: rgb(255, 255, 255, 0.5);
+    width: 25px;
+    height: 25px;
+    border-radius: 10px;
+    transition-property: color, background-color;
+    transition-duration: 0.05s, 0.2s;
+    transition-timing-function: linear, ease-in;
+    margin-top: 5px;
+}
+
+#spnDiffBtns span:hover
+{
+    background-color: rgb(164, 195, 178, 0.1);
+}
+
+/*----------------------------------------------------------EDIT MODE------------------------------------------------------------------*/
+#btnEditCard
+{
+    position: absolute;
+    left: 28%;
+}
+
+#btnNext
+{
+    position: absolute;
+    top: 20%;
+    left: 76%;
+}
+
+#btnBack
+{
+    position: absolute;
+    top: 20%;
+    left: 45%;
+}
+
+/*----------------------------------------------------------SETTINGS MODAL------------------------------------------------------------------*/
+#settingsModal
+{
+    z-index: 100;
+    position: absolute;
+    height: 50vh;
+    width: 50vw;
+    top: 25vh;
+    left: 26vw;
+    text-align: center;
+    background-color: rgb(164, 195, 178, 0.8);
+}
+
+/*----------------------------------------------------------HELP MODAL------------------------------------------------------------------*/
+#helpModal
+{
+    z-index: 100;
+    position: absolute;
+    height: 50vh;
+    width: 50vw;
+    top: 25vh;
+    left: 26vw;
+    text-align: center;
+    background-color: rgb(164, 195, 178, 0.8);
+}
