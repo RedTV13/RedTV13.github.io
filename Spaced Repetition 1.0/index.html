@@ -1,0 +1,97 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spaced Repetition</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style1.css">
+
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body onload="startUp()">
+    <div id="container">
+        <div id="navigation">
+            <span id="btnSections" onclick="showSections()" class="active">sections</span>
+            <span id="btnBoxes" onclick="showBoxes()">boxes</span>
+            <div id="divSections">
+                <ul id="lstSections"></ul>
+            </div>
+            <div id="divBoxes" class="hidden">
+                <ul id="lstBoxes"></ul>
+            </div>
+            <span id="newSection" onclick="createNewSection()">new section</span>
+        </div>
+        <div id="modes">
+            <span id="spnReview" onclick="reviewMode()" class="active">review mode</span>
+            <span id="spnEdit" onclick="editMode()">edit mode</span>
+            <img src="Assets/cog.png" id="imgSettings" onclick="showSettings()">
+            <img src="Assets/help.png" id="imgHelp" onclick="showHelp()">
+        </div>
+        <div id="content">
+            <span id="spnReviewMode">
+                <span id="spnQuestion">no questions in selected section</span><br>
+                <button id="btnShowAns" onclick="displayAnswer()">Display Answer</button><br>
+                <span id="spnAnswer" class="hidden">--</span><br>
+                <span id="spnDiffBtns" class="hidden">
+                    How difficult was this question?<br>
+                    <span id="spn0">0</span>
+                    <span id="spn1">1</span>
+                    <span id="spn2">2</span>
+                    <span id="spn3">3</span>
+                    <span id="spn4">4</span>
+                    <span id="spn5">5</span>
+                    <!-- <input type="number" id="iptDifficulty" max="5" min="0" onchange="setDifficulty()"> -->
+                </span><br>
+                <button id="btnNextQ" onclick="nextQ()" class="hidden">next question</button>
+            </span>
+            <span id="spnEditMode" class="hidden">
+                <button id="btnEditCard" onclick="editCards()">Edit Cards</button>
+                <button id="btnBack" onclick="back()">&#128896</button>
+                <span id="spnQuestionE">question:</span><br>
+                <input type="text" id="iptQuestion"><br>
+                <span id="spnAnswerE">answer:</span><br>
+                <input type="text" id="iptAnswer"><br>
+                <button type="submit" onclick="saveQuestion()" id="btnSaveCard">save card</button><br>
+                <button id="btnDeleteCard" onclick="deleteCard()">Delete card</button>
+                <button id="btnNext" onclick="next()">&#128898</button>
+            </span>
+        </div>
+    </div>
+    <div id="fullOverlay" class="hidden"></div>
+    <div id="newSecModal" class="hidden">
+        <span class="close" onclick="hideModal(newSectionModal)">&times;</span>
+        <span id="modalContent">
+            <h2>New Section</h2>
+            <span>new section name:</span><br>
+            <input type="text" id="iptName"><br>
+            <button type="submit" id="saveSection" onclick="createNewSection()">save</button>
+        </span>
+    </div>
+    <div id="settingsModal" class="hidden">
+        <span class="close" onclick="hideModal(divSettings)">&times;</span>
+        <h2>Settings</h2><br>
+        <button id="clearStorage" onclick="localStorage.clear()">clear stored data</button><br>
+    </div>
+    <div id="helpModal" class="hidden">
+        <span class="close" onclick="hideModal(divHelp)">&times;</span>
+        <h2>Help</h2>
+        <span style="font-weight: 700;">Difficulty ratings</span><br>
+        <span>5: perfect response<br>
+            4: correct response after a hesitation<br>
+            3: correct response recalled with serious difficulty <br>
+            2: incorrect response; where the correct one seemed easy to recall<br>
+            1: incorrect response; the correct one remembered<br>
+            0: complete blackout<br></span>
+    </div>
+    <div id="snackbar"></div>
+</body>
+<script src="script1.js"></script>
+
+</html>
