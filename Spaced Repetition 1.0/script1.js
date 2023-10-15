@@ -40,7 +40,6 @@ var activeSection;
 var a;
 var boxes = ["late", "today", "tomorrow", "other"];
 var activeBox;
-var arrCards = [];
 
 //Counters
 var intSection = 0;
@@ -196,7 +195,8 @@ ulSections.addEventListener("click", (ev) =>
 
 ulBoxes.addEventListener("click", (ev) =>
 {
-    arrCards = [];
+    let arrCards = [];
+    let arrSections = [];
     boxes.forEach(e => 
     {
         if (ev.target.id == e)
@@ -223,6 +223,7 @@ ulBoxes.addEventListener("click", (ev) =>
         {
             if (sections[a][b].box == activeBox)
             {
+                arrSections.push(a);
                 arrCards.push(b.slice(4));
             }
         })
