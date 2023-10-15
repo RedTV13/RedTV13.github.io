@@ -229,8 +229,8 @@ ulBoxes.addEventListener("click", (ev) =>
 
     if (arrCards.length > 0)
     {
-        spnQuestion.innerHTML = sections[activeSection][arrCards[0]].question;
-        spnAnswer.innerHTML = sections[activeSection][arrCards[0]].answer;
+        spnQuestion.innerHTML = sections[activeSection]["card" + arrCards[0]].question;
+        spnAnswer.innerHTML = sections[activeSection]["card" + arrCards[0]].answer;
         btnShowAns.className = "";
     }
     else
