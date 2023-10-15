@@ -329,7 +329,8 @@ function reIndexCards()
         if (parseInt(e.slice(4)) != i)
         {
             a = sections[activeSection][e];
-            sections[activeSection]["card" + i] = {
+            b = sections[activeSection]["card" + i];
+            b = {
                 question: a.question,
                 answer: a.answer,
                 dateCreated: a.dateCreated,
@@ -340,13 +341,13 @@ function reIndexCards()
             }
 
             localStorage.setItem(activeSection + "-" + "cards", i);
-            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "question", iptQuestion.value);
-            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "answer", iptAnswer.value);
-            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "dateCreated", a.dateCreated.toDateString());
-            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "ef", a.ef);
-            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "n", a.n);
-            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "nextInterval", a.nextInterval);
-            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "reviewTime", a.reviewTime);
+            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "question", b.question);
+            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "answer", b.answer);
+            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "dateCreated", b.dateCreated.toDateString());
+            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "ef", b.ef);
+            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "n", b.n);
+            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "nextInterval", b.nextInterval);
+            localStorage.setItem(activeSection + "-" + "card" + i + "-" + "reviewTime", b.reviewTime);
         }
         i++;
     })
