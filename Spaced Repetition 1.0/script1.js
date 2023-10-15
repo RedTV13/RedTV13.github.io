@@ -196,6 +196,7 @@ ulSections.addEventListener("click", (ev) =>
 
 ulBoxes.addEventListener("click", (ev) =>
 {
+    arrCards = [];
     boxes.forEach(e => 
     {
         if (ev.target.id == e)
