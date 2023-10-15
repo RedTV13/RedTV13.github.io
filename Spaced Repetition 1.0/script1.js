@@ -231,8 +231,8 @@ ulBoxes.addEventListener("click", (ev) =>
 
     if (arrCards.length > 0)
     {
-        spnQuestion.innerHTML = sections[activeSection]["card" + arrCards[0]].question;
-        spnAnswer.innerHTML = sections[activeSection]["card" + arrCards[0]].answer;
+        spnQuestion.innerHTML = sections[arrSections[0]]["card" + arrCards[0]].question;
+        spnAnswer.innerHTML = sections[arrSections[0]]["card" + arrCards[0]].answer;
         btnShowAns.className = "";
     }
     else
@@ -267,8 +267,8 @@ function back()
     if (intCard > 0)
     {
         intCard--;
-        iptQuestion.value = sections[activeSection]["card" + intCard].question;
-        iptAnswer.value = sections[activeSection]["card" + intCard].answer;
+        iptQuestion.value = sections[arrSections[intCard]]["card" + arrCards[intCard]].question;
+        iptAnswer.value = sections[arrSections[intCard]]["card" + arrCards[intCard]].answer;
     }
 }
 
