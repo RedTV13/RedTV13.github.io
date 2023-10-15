@@ -270,8 +270,18 @@ function back()
     if (intCard > 0)
     {
         intCard--;
-        iptQuestion.value = sections[arrSections[intCard]]["card" + arrCards[intCard]].question;
-        iptAnswer.value = sections[arrSections[intCard]]["card" + arrCards[intCard]].answer;
+        iptQuestion.value = sections[activeSection]["card" + intCard].question;
+        iptAnswer.value = sections[activeSection]["card" + intCard].answer;
+    }
+}
+
+function next()
+{
+    if (intCard < Object.keys(sections[activeSection]).length - 2)
+    {
+        intCard++;
+        iptQuestion.value = sections[activeSection]["card" + intCard].question;
+        iptAnswer.value = sections[activeSection]["card" + intCard].answer;
     }
 }
 
@@ -299,26 +309,16 @@ var timer = setInterval(function()
     }
 })
 
-function next()
-{
-    if (intCard < Object.keys(sections[activeSection]).length - 2)
-    {
-        intCard++;
-        iptQuestion.value = sections[activeSection]["card" + intCard].question;
-        iptAnswer.value = sections[activeSection]["card" + intCard].answer;
-    }
-}
-
 function deleteCard()
 {
     delete sections[activeSection]["card" + intCard];
+    reIndexCards();
     snackbar.innerHTML = "Card deleted";
     snackbar.className = "show";
     intCard--;
     iptQuestion.value = sections[activeSection]["card" + intCard].question;
     iptAnswer.value = sections[activeSection]["card" + intCard].answer;
     setTimeout(function() { snackbar.className = snackbar.className.replace("show", ""); }, 3000);
-    reIndexCards();
 }
 
 function reIndexCards()
