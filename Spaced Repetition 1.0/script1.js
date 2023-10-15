@@ -41,6 +41,9 @@ var a;
 var boxes = ["late", "today", "tomorrow", "other"];
 var activeBox;
 
+let arrCards = [];
+let arrSections = [];
+
 //Counters
 var intSection = 0;
 var intCard = 0;
@@ -195,8 +198,8 @@ ulSections.addEventListener("click", (ev) =>
 
 ulBoxes.addEventListener("click", (ev) =>
 {
-    let arrCards = [];
-    let arrSections = [];
+    arrCards = [];
+    arrSections = [];
     boxes.forEach(e => 
     {
         if (ev.target.id == e)
@@ -618,15 +621,15 @@ function calcBox(obj)
 {
     let now = noTime(new Date());
     obj.nextInterval = noTime(obj.nextInterval);
-    if (obj.nextInterval == now)
+    if (obj.nextInterval.toDateString() == now.toDateString())
     {
         obj.box = "today";
     }
-    else if (obj.nextInterval == addDays(now, 1))
+    else if (obj.nextInterval.toDateString() == addDays(now, 1).toDateString())
     {
         obj.box = "tomorrow";
     }
-    else if (obj.nextInterval < now)
+    else if (obj.nextInterval.toDateString() < now.toDateString())
     {
         obj.box = "late";
     }
