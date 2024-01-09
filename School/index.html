@@ -1,37 +1,37 @@
 <html>
-    <style>
+<style>
 
-    </style>
-    <head>
-        <title>New Tab</title>
-        <link rel="stylesheet" href="NewTab.css">
-        <script src="script.js"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet">
-    </head>
-    <body onload="StartUp()">
-            <form method="get" id="Search" action="https://www.bing.com/">
-                <input type="hidden" name="sites" value=""/>
-                <input type="hidden" name="k7" value="#ffffff"/>
-                <input type="hidden" name="k8" value="#222222"/>
-                <input type="hidden" name="k9" value="#00278e"/>
-                <input type="hidden" name="kx" value="#20692b"/>
-                <input type="hidden" name="kj" value="#fafafa"/>
-                <input type="hidden" name="kt" value="p"/>
-                <input type="text" name="q" placeholder="  Search…" id="Bar"/>
-                <button type="submit" id="submit">Search</button>
-                <div id="container">
-                    <div class="Agora"><a href="https://sboxprd.cggs.act.edu.au/"><img src="images/Agora.png" class="AgoraIMG"></a><span id="Agora">agora</span></div>
-                    <div class="Canvas"><a href="https://cggs.instructure.com/"><img src="images/Canvas.png" class="CanvasIMG"></a><span id="Canvas">canvas</span></div>
-                    <div class="GitLab"><a href="https://gitlab.cecs.anu.edu.au/"><img src="images/GitLab.png" class="GitLabIMG"></a><span id="GitLab">GitLab</span></div>
-                    <div class="Drive"><a href="https://drive.google.com/drive/u/0/my-drive"><img src="images/Drive.png" class="DriveIMG"></a><span id="Drive">drive</span></div>
-                    <div class="Calendar"><a href="https://calendar.google.com/calendar/u/0/r"><img src="images/Calendar.png" class="CalendarIMG"></a><span id="Calendar">calendar</span></div>
-                    <div class="BSSS"><a href="https://student-profiles.ed.act.edu.au/"><img src="images/BSSS.png" class="BSSSIMG"></a><span id="BSSS">bsss</span></div>
-                    <div class="Cambridge"><a href="https://www.cambridge.org/go/resources"><img src="images/Cambridge.png" class="CambridgeIMG"></a><span id="Cambridge">cambridge</span></div>
-                    <div class="Unsplash"><a href="https://unsplash.com/"><img src="images/Unsplash.png" class="UnsplashIMG"></a><span id="Unsplash">unsplash</span></div>
-                    <div class="Library"><a href="https://www.cggs.act.edu.au/teaching-learning/the-student-journey/library/senior-school-library-resources"><img src="images/Libguides.png" class="LibraryIMG"></a><span id="Library">libguides</span></div>
-                </div>
-            </form>
-    </body>
+</style>
+
+<head>
+    <title>New Tab</title>
+    <link rel="stylesheet" href="NewTab.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@100;400;700&display=swap"
+        rel="stylesheet">
+</head>
+<svg xmlns="http://www.w3.org/2000/svg" width="42" height="35" viewBox="0 0 42 35" onclick="showMenu()">
+    <path
+        d="M26.8139 30.443C27.9044 30.443 28.7884 31.3271 28.7884 32.4176C28.7884 33.4172 28.0456 34.2434 27.0818 34.3741L26.8139 34.3921H1.97455C0.884036 34.3921 0 33.5081 0 32.4176C0 31.4179 0.742836 30.5918 1.70661 30.4611L1.97455 30.443H26.8139ZM40.0254 15.9122C41.116 15.9122 42 16.7963 42 17.8868C42 18.8864 41.2572 19.7126 40.2934 19.8433L40.0254 19.8613H1.97455C0.884036 19.8613 0 18.9773 0 17.8868C0 16.8871 0.742836 16.061 1.70661 15.9302L1.97455 15.9122H40.0254ZM29.4322 0C30.5227 0 31.4067 0.884037 31.4067 1.97455C31.4067 2.97419 30.6639 3.80033 29.7001 3.93107L29.4322 3.9491H1.97455C0.884036 3.9491 0 3.06506 0 1.97455C0 0.974913 0.742836 0.148773 1.70661 0.0180254L1.97455 0H29.4322Z"
+        fill="#FFF" style="mix-blend-mode:overlay" />
+</svg>
+<div class="hidden" id="menu">
+    <a class="option" href="https://sboxprd.cggs.act.edu.au/">Agora</a>
+    <a class="option" href="https://student-profiles.ed.act.edu.au/">BSSS</a>
+    <a class="option" href="https://calendar.google.com/calendar/u/0/r">Calendar</a>
+    <a class="option" href="https://www.cambridge.org/go/resources">Cambridge</a>
+    <a class="option" href="https://comp.anu.edu.au/courses/extn1019/labs-year-12/">Creative Computing</a>
+    <a class="option" href="https://drive.google.com/drive/u/0/my-drive">Drive</a>
+    <a class="option" href="https://anu.primo.exlibrisgroup.com/discovery/search?vid=61ANU_INST:ANU&lang=en&mode=advanced" id="Ex Libris">Ex Libris</a>
+    <a class="option" href="https://gitlab.cecs.anu.edu.au/">GitLab</a>
+    <a class="option" href="https://www.cggs.act.edu.au/teaching-learning/the-student-journey/library/senior-school-library-resources">Libguides</a>
+</div>
+
+<body onload="StartUp()">
+    <input type="text" placeholder="Search..." id="search">
+</body>
+<script src="script.js"></script>
+
 </html>
