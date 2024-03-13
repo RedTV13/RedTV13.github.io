@@ -19,7 +19,7 @@ document.getElementById("search").addEventListener("keydown", (e) =>
     {
         search(document.getElementById("search").value);
     }
-}
+})
 
 document.getElementsByTagName("body")[0].addEventListener("click", (e) =>
 {
