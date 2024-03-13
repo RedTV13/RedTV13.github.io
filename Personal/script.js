@@ -19,8 +19,4 @@ document.getElementById("search").addEventListener("keydown", (e) =>
     {
         search(document.getElementById("search").value);
     }
-<<<<<<< HEAD
-})
-=======
-})
->>>>>>> f7f710ad75d6f455c62f7e741875914d067d07d8
+}
