@@ -44,7 +44,7 @@ function time()
 {
     red = Math.round(mapRange(now.getHours(), 0, 23, 0, 255));
     green = Math.round(mapRange(now.getMinutes(), 0, 59, 0, 255));
-    blue = Math.round(mapRange(now.getMinutes(), 0, 59, 0, 255));
+    blue = Math.round(mapRange(now.getSeconds(), 0, 59, 0, 255));
     colour = red + "," + green + "," + blue;
     //console.log(colour);
     now = new Date();
