@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <title>New Tab</title>
     <link rel="stylesheet" href="NewTab.css">
@@ -19,14 +20,24 @@
     <a class="option" href="https://calendar.google.com/calendar/u/0/r">Calendar</a>
     <a class="option" href="https://www.cambridge.org/go/resources">Cambridge</a>
     <a class="option" href="https://drive.google.com/drive/u/0/my-drive">Drive</a>
-    <a class="option" href="https://anu.primo.exlibrisgroup.com/discovery/search?vid=61ANU_INST:ANU&lang=en&mode=advanced" id="Ex Libris">Ex Libris</a>
+    <a class="option"
+        href="https://anu.primo.exlibrisgroup.com/discovery/search?vid=61ANU_INST:ANU&lang=en&mode=advanced"
+        id="Ex Libris">Ex Libris</a>
     <a class="option" href="https://comp.anu.edu.au/courses/extn1019/labs-year-12/">EXTN1019</a>
     <a class="option" href="https://gitlab.cecs.anu.edu.au/">GitLab</a>
-    <a class="option" href="https://www.cggs.act.edu.au/teaching-learning/the-student-journey/library/senior-school-library-resources">Libguides</a>
+    <a class="option"
+        href="https://www.cggs.act.edu.au/teaching-learning/the-student-journey/library/senior-school-library-resources">Libguides</a>
 </div>
 
 <body onload="StartUp()">
-    <input type="text" placeholder="Search..." id="search" autocomplete="off">
+    <div id="container">
+        <form oninput="return bingAutosuggest(this.query.value, getSubscriptionKey())">
+            <input type="text" placeholder="Search..." id="search" autocomplete="off" name="query">
+        </form>
+        <div id="results">
+            <span class="suggestion">suggestion</span>
+        </div>
+    </div>
 </body>
 <script src="script.js"></script>
 
