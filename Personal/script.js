@@ -19,8 +19,12 @@ document.getElementById("search").addEventListener("keydown", (e) =>
     {
         search(document.getElementById("search").value);
     }
-<<<<<<< HEAD
 })
-=======
+
+document.getElementsByTagName("body")[0].addEventListener("click", (e) =>
+{
+    if (e.target.tagName != "svg")
+    {
+        document.getElementById("menu").classList.add("hidden");
+    }
 })
->>>>>>> f7f710ad75d6f455c62f7e741875914d067d07d8
