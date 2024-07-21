@@ -1,32 +1,42 @@
 <html>
 
 <head>
-    <title>New Tab</title>
-    <link rel="stylesheet" href="NewTab.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@100;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
         rel="stylesheet">
 </head>
-<svg xmlns="http://www.w3.org/2000/svg" width="42" height="35" viewBox="0 0 42 35" onclick="showMenu()">
-    <path
-        d="M26.8139 30.443C27.9044 30.443 28.7884 31.3271 28.7884 32.4176C28.7884 33.4172 28.0456 34.2434 27.0818 34.3741L26.8139 34.3921H1.97455C0.884036 34.3921 0 33.5081 0 32.4176C0 31.4179 0.742836 30.5918 1.70661 30.4611L1.97455 30.443H26.8139ZM40.0254 15.9122C41.116 15.9122 42 16.7963 42 17.8868C42 18.8864 41.2572 19.7126 40.2934 19.8433L40.0254 19.8613H1.97455C0.884036 19.8613 0 18.9773 0 17.8868C0 16.8871 0.742836 16.061 1.70661 15.9302L1.97455 15.9122H40.0254ZM29.4322 0C30.5227 0 31.4067 0.884037 31.4067 1.97455C31.4067 2.97419 30.6639 3.80033 29.7001 3.93107L29.4322 3.9491H1.97455C0.884036 3.9491 0 3.06506 0 1.97455C0 0.974913 0.742836 0.148773 1.70661 0.0180254L1.97455 0H29.4322Z"
-        fill="#FFF" style="mix-blend-mode:overlay" />
-</svg>
-<div class="hidden" id="menu">
-    <a class="option" href="https://www.youtube.com/">YouTube</a>
-    <a class="option" href="https://www.disneyplus.com/en-gb/home">Disney+</a>
-    <a class="option" href="https://calendar.google.com/">Calendar</a>
-    <a class="option" href="https://mail.google.com/mail/u/0/?hl=en#inbox">Gmail</a>
-    <a class="option" href="https://www.pinterest.com.au/">Pinterest</a>
-    <a class="option" href="https://drive.google.com/">Drive</a>
-    <a class="option" href="https://my.gov.au/en/myaccount/dashboard/">myGov</a>
-    <a class="option" href="https://www.goodreads.com/">Goodreads</a>
-    <a class="option" href="https://github.com/RedTV13/RedTV13.github.io">GitHub</a>
-</div>
 
 <body onload="StartUp()">
-    <input type="text" placeholder="Search..." id="search" autocomplete="off">
+    <span id="icon" onclick="showMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="42" height="35" viewBox="0 0 42 35">
+            <path
+                d="M26.8139 30.443C27.9044 30.443 28.7884 31.3271 28.7884 32.4176C28.7884 33.4172 28.0456 34.2434 27.0818 34.3741L26.8139 34.3921H1.97455C0.884036 34.3921 0 33.5081 0 32.4176C0 31.4179 0.742836 30.5918 1.70661 30.4611L1.97455 30.443H26.8139ZM40.0254 15.9122C41.116 15.9122 42 16.7963 42 17.8868C42 18.8864 41.2572 19.7126 40.2934 19.8433L40.0254 19.8613H1.97455C0.884036 19.8613 0 18.9773 0 17.8868C0 16.8871 0.742836 16.061 1.70661 15.9302L1.97455 15.9122H40.0254ZM29.4322 0C30.5227 0 31.4067 0.884037 31.4067 1.97455C31.4067 2.97419 30.6639 3.80033 29.7001 3.93107L29.4322 3.9491H1.97455C0.884036 3.9491 0 3.06506 0 1.97455C0 0.974913 0.742836 0.148773 1.70661 0.0180254L1.97455 0H29.4322Z"
+                fill="#FFF" style="mix-blend-mode:overlay" />
+        </svg>
+    </span>
+    <ul id="menu" class="hidden">
+        <li class="option"><a href="https://www.youtube.com/">YouTube</a></li>
+        <li class="option"><a href="https://www.disneyplus.com/en-gb/home">Disney+</a></li>
+        <li class="option"><a href="https://calendar.google.com/">Calendar</a></li>
+        <li class="option"><a href="https://mail.google.com/mail/u/0/?hl=en#inbox">Gmail</a></li>
+        <li class="option"><a href="https://www.pinterest.com.au/">Pinterest</a></li>
+        <li class="option"><a href="https://drive.google.com/">Drive</a></li>
+        <li class="option"><a href="https://my.gov.au/en/myaccount/dashboard/">myGov</a></li>
+        <li class="option"><a href="https://www.goodreads.com/">Goodreads</a></li>
+        <li class="option"><a href="https://github.com/RedTV13/RedTV13.github.io">GitHub</a></li>
+    </ul>
+
+    <div id="container">
+        <form oninput="return bingAutosuggest(this.query.value, getSubscriptionKey())">
+            <input name="query" placeholder="Search..." id="search" autocomplete="off" type="text">
+        </form>
+        <ul id="suggestions" class="hidden">
+        </ul>
+    </div>
 </body>
 <script src="script.js"></script>
+
+</html>
