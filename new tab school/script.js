@@ -11,14 +11,19 @@ function showMenu()
 
 function search(e)
 {
-    window.open("https://www.bing.com/search?q=" + e, "_self")
+    window.open("https://www.bing.com/search?q=" + e, "_self");
 }
 
 document.getElementById("search").addEventListener("keydown", (e) =>
 {
     if (e.key == "Enter")
     {
+        // e.preventDefault();
         search(document.getElementById("search").value);
+    }
+    else
+    {
+        bingAutosuggest(document.getElementById("search").value, getSubscriptionKey());
     }
 })
 
@@ -83,16 +88,19 @@ getSubscriptionKey = function()
             try
             {
                 localStorage.removeItem(COOKIE);
-            } catch (e)
+            }
+            catch (e)
             {
                 document.cookie = COOKIE + "=";
             }
-        } else
+        }
+        else
         {
             try
             {
                 return getSubscriptionKeyLocalStorage();
-            } catch (e)
+            }
+            catch (e)
             {
                 return getSubscriptionKeyCookie();
             }
@@ -105,6 +113,7 @@ getSubscriptionKey = function()
 
 let lastSuggestion = new Date();
 let prevVal = "";
+var request;
 function bingAutosuggest(query, key)
 {
     let now = new Date();
@@ -112,7 +121,7 @@ function bingAutosuggest(query, key)
     {
         var endpoint = "https://api.bing.microsoft.com/v7.0/suggestions";
 
-        var request = new XMLHttpRequest();
+        request = new XMLHttpRequest();
 
         try
         {
@@ -193,7 +202,7 @@ function renderSearchResults(results)
                 prevVal = document.getElementById("search").value;
                 document.getElementById("search").value = el.displayText;
             })
-            
+
             li.addEventListener('mouseout', () =>
             {
                 document.getElementById("search").value = prevVal;

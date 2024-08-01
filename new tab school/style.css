@@ -162,7 +162,6 @@ input
     padding: 10px;
     border-radius: 10px;
     border: none;
-    flex: 1 0 0;
     background: radial-gradient(278.82% 137.51% at 1.95% 3.59%,
             rgba(255, 255, 255, 0.40) 0%,
             rgba(255, 255, 255, 0.00) 100%);
