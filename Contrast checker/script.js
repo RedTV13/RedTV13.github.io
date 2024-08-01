@@ -6,6 +6,16 @@ function addColour()
     var col = document.createElement("input");
     col.type = "color";
     colInputs.append(col);
+
+    let i = colInputs.getElementsByTagName('input').length - 1;
+    if (i + 1 > 2)
+    {
+        document.getElementById("removeCol").disabled = false;
+    }
+    else
+    {
+        document.getElementById("removeCol").disabled = true;
+    }
 }
 
 function checkContrast()
@@ -66,7 +76,7 @@ function checkContrast()
             res.nextElementSibling.classList.toggle("hidden");
         })
         span.append(res);
-        
+
         var text = document.createElement("span");
         text.innerHTML = `AA-level large text: ${r['res']['AAL']} <br> AA-level small text: ${r['res']['AAS']} <br> AAA-level large text: ${r['res']['AAAL']} <br> AAA-level small text: ${r['res']['AAAS']}`;
         text.style.fontFamily = "'Maitree', serif";
@@ -87,6 +97,7 @@ function showCompCols()
             colours[i].classList.toggle("hidden");
         }
     }
+
     if (document.getElementById("showCols").innerHTML.includes("compliant"))
     {
         document.getElementById("showCols").innerHTML = "Show all colours";
@@ -148,5 +159,24 @@ function myFunction()
     } else
     {
         header.classList.remove("sticky");
+    }
+}
+
+function removeColour()
+{
+    let i = colInputs.getElementsByTagName('input').length - 1;
+    if (i + 1 > 2)
+    {
+        colInputs.removeChild(colInputs.getElementsByTagName("input")[i]);
+        i--;
+
+        if (i + 1 <= 2)
+        {
+            document.getElementById("removeCol").disabled = true;
+        }
+        else
+        {
+            document.getElementById("removeCol").disabled = false;
+        }
     }
 }
