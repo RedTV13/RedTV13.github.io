@@ -11,7 +11,7 @@ function showMenu()
 
 function search(e)
 {
-    window.open("https://www.bing.com/search?q=" + e, "_self")
+    window.open("https://www.bing.com/search?q=" + e, "_self");
 }
 
 document.getElementById("search").addEventListener("keydown", (e) =>
@@ -20,15 +20,24 @@ document.getElementById("search").addEventListener("keydown", (e) =>
     {
         search(document.getElementById("search").value);
     }
+    else
+    {
+        bingAutosuggest(document.getElementById("search").value, getSubscriptionKey());
+    }
 })
 
 document.getElementsByTagName("body")[0].addEventListener("click", (e) =>
 {
-    if (e.target.tagName != "svg")
+    if (e.target.id != "icon")
     {
         document.getElementById("menu").classList.add("hidden");
     }
-})
+
+    if (e.target.id != "search")
+    {
+        document.getElementById("suggestions").classList.add("hidden");
+    }
+});
 
 getSubscriptionKey = function()
 {
@@ -78,16 +87,19 @@ getSubscriptionKey = function()
             try
             {
                 localStorage.removeItem(COOKIE);
-            } catch (e)
+            }
+            catch (e)
             {
                 document.cookie = COOKIE + "=";
             }
-        } else
+        }
+        else
         {
             try
             {
                 return getSubscriptionKeyLocalStorage();
-            } catch (e)
+            }
+            catch (e)
             {
                 return getSubscriptionKeyCookie();
             }
@@ -98,54 +110,106 @@ getSubscriptionKey = function()
 
 }();
 
+let lastSuggestion = new Date();
+let prevVal = "";
+var request;
 function bingAutosuggest(query, key)
 {
-    var endpoint = "https://api.bing.microsoft.com/v7.0/suggestions";
-
-    var request = new XMLHttpRequest();
-
-    try
+    let now = new Date();
+    if (now.getTime() - lastSuggestion.getTime() > 400)
     {
-        request.open("GET", endpoint + "?q=" + encodeURIComponent(query));
-    }
-    catch (e)
-    {
-        renderErrorMessage("Bad request");
+        var endpoint = "https://api.bing.microsoft.com/v7.0/suggestions";
+
+        request = new XMLHttpRequest();
+
+        try
+        {
+            request.open("GET", endpoint + "?q=" + encodeURIComponent(query));
+        }
+        catch (e)
+        {
+            renderErrorMessage("Bad request");
+            return false;
+        }
+
+        request.setRequestHeader("Ocp-Apim-Subscription-Key", key);
+
+        request.addEventListener("load", function()
+        {
+            if (this.status === 200)
+            {
+                renderSearchResults(JSON.parse(this.responseText));
+            }
+            else
+            {
+                if (this.status === 401) getSubscriptionKey(true);
+                renderErrorMessage(this.statusText, this.status);
+            }
+        });
+
+        request.addEventListener("error", function()
+        {
+            renderErrorMessage("Network error");
+        });
+
+        request.addEventListener("abort", function()
+        {
+            renderErrorMessage("Request aborted");
+        });
+
+        request.send();
+        lastSuggestion = new Date();
         return false;
     }
-
-    request.setRequestHeader("Ocp-Apim-Subscription-Key", key);
-
-    request.addEventListener("load", function()
+    else
     {
-        if (this.status === 200)
+        setTimeout(() =>
         {
-            renderSearchResults(JSON.parse(this.responseText));
-        }
-        else
-        {
-            if (this.status === 401) getSubscriptionKey(true);
-            renderErrorMessage(this.statusText, this.status);
-        }
-    });
-
-    request.addEventListener("error", function()
-    {
-        renderErrorMessage("Network error");
-    });
-
-    request.addEventListener("abort", function()
-    {
-        renderErrorMessage("Request aborted");
-    });
-
-    request.send();
-    return false;
+            bingAutosuggest(query, key);
+        }, 100);
+    }
 }
 
 function renderSearchResults(results)
 {
-    console.log(JSON.stringify(results, null, 2));
+    let s = document.getElementById("suggestions");
+
+    if (document.getElementById('search').value == '')
+    {
+        s.classList.add('hidden');
+    }
+    else
+    {
+        s.classList.remove('hidden');
+        s.innerHTML = "";
+        let suggestions = results.suggestionGroups[0].searchSuggestions;
+
+        if (suggestions.length > 5)
+        {
+            suggestions.splice(5, suggestions.length - 5);
+        }
+
+        suggestions.forEach(el =>
+        {
+            let li = document.createElement('li');
+            let a = document.createElement('a');
+            li.classList.add('suggestion');
+            a.innerHTML = el.displayText;
+            a.href = el.url;
+            li.addEventListener('mouseover', () =>
+            {
+                prevVal = document.getElementById("search").value;
+                document.getElementById("search").value = el.displayText;
+            })
+
+            li.addEventListener('mouseout', () =>
+            {
+                document.getElementById("search").value = prevVal;
+            })
+            li.append(a);
+            s.append(li);
+        });
+    }
 }
 
 function renderErrorMessage(message, code)

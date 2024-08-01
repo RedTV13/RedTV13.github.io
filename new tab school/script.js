@@ -18,7 +18,6 @@ document.getElementById("search").addEventListener("keydown", (e) =>
 {
     if (e.key == "Enter")
     {
-        // e.preventDefault();
         search(document.getElementById("search").value);
     }
     else
