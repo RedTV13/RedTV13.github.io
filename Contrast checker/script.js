@@ -60,8 +60,8 @@ function checkContrast()
         eg.style.background = r['a'];
         eg.style.color = r['b'];
         eg.style.padding = "3px";
-        eg.style.fontFamily = "'Fanwood Text', serif"
-        eg.innerHTML = `Text colour: ${r['b']} on Background colour: ${r['a']}`
+        eg.style.fontFamily = "'Fanwood Text', serif";
+        eg.innerHTML = `Text colour: ${r['b']} on Background colour: ${r['a']} <br> <span>Small text</span> <br> <span class="large">Large text</span>`;
         span.append(eg);
 
         var con = document.createElement("span");
@@ -69,7 +69,7 @@ function checkContrast()
         span.append(con);
 
         var res = document.createElement("span");
-        res.innerHTML = `WCAG guidelines &#9013`;
+        res.innerHTML = `WCAG guidelines <span class="arrow">&#9013</span>`;
         res.classList.add("toggle");
         res.addEventListener("click", (e) =>
         {
@@ -78,7 +78,10 @@ function checkContrast()
         span.append(res);
 
         var text = document.createElement("span");
-        text.innerHTML = `AA-level large text: ${r['res']['AAL']} <br> AA-level small text: ${r['res']['AAS']} <br> AAA-level large text: ${r['res']['AAAL']} <br> AAA-level small text: ${r['res']['AAAS']}`;
+        text.innerHTML = `AA-level large text: ${r['res']['AAL']} <br> 
+                        AA-level small text: ${r['res']['AAS']} <br> 
+                        AAA-level large text: ${r['res']['AAAL']} <br> 
+                        AAA-level small text: ${r['res']['AAAS']}`;
         text.style.fontFamily = "'Maitree', serif";
         text.classList.add("WCAG");
         text.classList.add("hidden");
