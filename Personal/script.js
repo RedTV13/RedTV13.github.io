@@ -113,6 +113,7 @@ getSubscriptionKey = function()
 let lastSuggestion = new Date();
 let prevVal = "";
 var request;
+let queryTimeout;
 function bingAutosuggest(query, key)
 {
     let now = new Date();
@@ -163,7 +164,7 @@ function bingAutosuggest(query, key)
     }
     else
     {
-        setTimeout(() =>
+        queryTimeout = setTimeout(() =>
         {
             bingAutosuggest(query, key);
         }, 100);
