@@ -1,0 +1,241 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root
+{
+	--pink: #ffcab1;
+	--light-pink: #ffcab130;
+	--light-gray: #fafafa;
+	--dark-gray: #e6e6e6;
+}
+
+body
+{
+	display: flex;
+	width: 100vw;
+	height: 100lvh;
+	font-family: 'Kumbh Sans', sans-serif;
+	overflow: hidden;
+	padding: 0;
+}
+
+*
+{
+	transition: 0.3s;
+}
+
+div
+{
+	padding: 10px;
+	gap: 10px;
+}
+
+a
+{
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+
+	&:hover
+	{
+		text-decoration: underline;
+	}
+}
+
+h1
+{
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.overlay
+{
+	background-color: var(--light-pink);
+	backdrop-filter: blur(5px);
+
+	& .modal
+	{
+		background-color: white;
+		border-radius: 20px;
+		width: 50%;
+		height: 50%;
+	}
+}
+
+#left-panel,
+#left-panel.collapsed:hover
+{
+	display: flex;
+	flex-direction: column;
+	width: 350px;
+	max-width: 400px;
+	overflow: hidden;
+	transition: 0.5s;
+
+	div
+	{
+		padding: 0.625rem;
+		transition: 0.3s;
+
+		svg
+		{
+			position: fixed;
+		}
+
+		span
+		{
+			position: relative;
+			left: 50px;
+		}
+	}
+
+	ul
+	{
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		padding: 10px;
+
+		li
+		{
+			display: flex;
+			flex-direction: row;
+			gap: 10px;
+			border-radius: 10px;
+			cursor: pointer;
+
+			span
+			{
+				visibility: visible;
+			}
+
+			a
+			{
+				display: flex;
+				flex-direction: row;
+				font-weight: normal;
+				gap: 10px;
+				flex-grow: 1;
+				padding: 15px;
+
+				&:hover
+				{
+					text-decoration: none;
+				}
+			}
+
+			&:hover
+			{
+				background-color: var(--light-pink);
+			}
+
+			&.active
+			{
+				background-color: var(--pink);
+			}
+		}
+	}
+}
+
+#left-panel.collapsed
+{
+	transition: 0.5s;
+	max-width: 60px;
+
+	div
+	{
+		padding: 5px 0px;
+	}
+
+	ul
+	{
+		padding: 0px;
+
+		li
+		{
+			a
+			{
+				padding: 10px 9px;
+			}
+
+			span
+			{
+				visibility: hidden;
+				width: 85px;
+				transition: 0.1s;
+			}
+		}
+	}
+}
+
+main
+{
+	display: flex;
+	flex-direction: column;
+	padding: 0px;
+	gap: 0;
+	width: 100%;
+	height: 100%;
+
+	#topBar
+	{
+		display: flex;
+		align-self: stretch;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 10px;
+
+		div
+		{
+			display: flex;
+			flex-direction: row;
+			gap: 20px;
+			padding: 0;
+			align-items: center;
+
+			&:first-child
+			{
+				font-weight: bold;
+			}
+
+			#profile
+			{
+				display: flex;
+				flex-direction: row;
+
+				span:last-child
+				{
+					width: 50px;
+					background-position: top;
+					background-repeat: no-repeat;
+					background-clip: border-box;
+					background-size: 110%;
+					border-radius: 100px;
+				}
+			}
+		}
+	}
+
+	.head
+	{
+		padding: 15px;
+
+		span
+		{
+			font-size: 20px;
+			font-weight: 500;
+		}
+	}
+
+	.content
+	{
+		width: 100%;
+		height: 100%;
+		border-top-left-radius: 30px;
+		background-color: var(--light-gray);
+		display: flex;
+		flex: 1 0 0;
+		flex-direction: row;
+	}
+}
